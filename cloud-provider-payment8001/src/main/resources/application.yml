@@ -4,7 +4,7 @@ server:
 ###服务名称(服务注册到eureka名称)
 spring:
   application:
-    name: cloud-provider-payment
+    name: cloud-payment-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包 com.mysql.jdbc.Driver
@@ -18,9 +18,9 @@ eureka:
       register-with-eureka: true
       fetch-registry: true
       # cluster version
-      #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
       # singleton version
-      defaultZone: http://eureka7001.com:7001/eureka
+      #defaultZone: http://eureka7001.com:7001/eureka
   #心跳检测与续约时间
   #开发时设置小些，保证服务关闭后注册中心能即使剔除服务
   instance:
