@@ -1,0 +1,37 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: seata-order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.190.100:8848
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.190.100:3306/seata_order?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Luo402288.
+
+feign:
+  hystrix:
+    enabled: false
+
+logging:
+  level:
+    io:
+      seata: info
+
+seata:
+  tx-service-group: fsp_tx_group
+  enabled: true
+  enable-auto-data-source-proxy: false
+  service:
+    vgroup-mapping:
+      fsp_tx_group: default
+    default:
+      grouplist: 192.168.190.100:8091
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
